@@ -1,0 +1,2 @@
+# Send Alt/Meta instead of macOS composed chars (å ∂ ƒ) so zellij Alt chords work.
+macos-option-as-alt = true

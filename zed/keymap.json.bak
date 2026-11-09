@@ -1,0 +1,69 @@
+[
+  // ---------------------------------------------------------------------------
+  // Optional. Append to ~/.config/zed/keymap.json (it is a top-level ARRAY —
+  // add this object as another element, don't wrap the file in braces).
+  //
+  // Zed's terminal passes most ctrl- chords straight through, so you may not
+  // need any of this. Apply it only if a mode key gets swallowed by Zed instead
+  // of reaching tmux — the null bindings release the key back to the terminal.
+  // ---------------------------------------------------------------------------
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-p": null, // PANE mode
+      "ctrl-t": null, // TAB mode
+      "ctrl-n": null, // RESIZE mode
+      "ctrl-o": null, // SESSION mode
+      "ctrl-s": null, // SCROLL mode
+      "ctrl-g": null, // LOCK toggle
+      "ctrl-q": null, // kill session (confirms first)
+      "ctrl-a": null, // raw-tmux prefix
+      "alt-h": null,
+      "alt-j": null,
+      "alt-k": null,
+      "alt-l": null,
+      "alt-n": null,
+      "alt-f": null,
+      "alt-m": null,
+      "alt-i": null,
+      "alt-o": null,
+      "alt-e": null,
+    },
+  },
+
+  // Handy: one key to focus the terminal panel, since tmux now owns
+  // everything that happens inside it.
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-j": "terminal_panel::ToggleFocus",
+    },
+  },
+  {
+    "bindings": {
+      "cmd-shift-ctrl-g": "git_panel::ToggleFocus",
+      "cmd-shift-ctrl-h": "workspace::ToggleLeftDock",
+      "cmd-shift-ctrl-o": "outline_panel::ToggleFocus",
+      "cmd-shift-ctrl-e": "project_panel::ToggleFocus",
+      "cmd-shift-ctrl-t": "tab_switcher::Toggle",
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-alt-cmd-shift-t": "workspace::NewTerminal",
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-alt-cmd-shift-t": "terminal_panel::Toggle",
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "shift-enter": ["terminal::SendText", "\u001b\r"],
+    },
+  },
+]

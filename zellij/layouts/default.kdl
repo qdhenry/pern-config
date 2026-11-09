@@ -1,0 +1,33 @@
+// Default layout: built-in tab bar on top, zjstatus hint bar on the bottom.
+// The bottom bar's whole text is driven by the current mode, so each mode
+// spells out its own keys. Built-in status-bar can't do this: its hint list
+// is hardcoded per mode in default-plugins/status-bar/src/second_line.rs.
+// Plugin: dj95/zjstatus v0.25.0 (requires zellij >= 0.45.0).
+layout {
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        children
+        pane size=1 borderless=true {
+            plugin location="file:/Users/q/.config/zellij/plugins/zjstatus.wasm" {
+                format_left   "{mode}"
+                format_center ""
+                format_right  "#[fg=#414868]{session}"
+                format_space  ""
+
+                mode_normal      "#[bg=#7aa2f7,fg=#1a1b26,bold] NORMAL #[bg=default,fg=#565f89] Alt n/e/i/o focus · Alt s/v split · Ctrl+Alt+g prefix "
+                mode_tmux        "#[bg=#e0af68,fg=#1a1b26,bold] PREFIX #[bg=default,fg=#e0af68] r resize · m move · s/d split · t tab · x close · f full · ? help "
+                mode_resize      "#[bg=#f7768e,fg=#1a1b26,bold] RESIZE #[bg=default,fg=#f7768e] n e i o grow · N E I O shrink · +/- all sides · esc done "
+                mode_move        "#[bg=#bb9af7,fg=#1a1b26,bold] MOVE   #[bg=default,fg=#bb9af7] n e i o move pane · tab cycle fwd · p cycle back · esc done "
+                mode_scroll      "#[bg=#9ece6a,fg=#1a1b26,bold] SCROLL #[bg=default,fg=#9ece6a] e/i line · n/o page · d/u half · / search · y editor · esc done "
+                mode_search      "#[bg=#9ece6a,fg=#1a1b26,bold] SEARCH #[bg=default,fg=#9ece6a] e next · i prev · c case · w wrap · x whole word · esc done "
+                mode_enter_search "#[bg=#9ece6a,fg=#1a1b26,bold] FIND   #[bg=default,fg=#9ece6a] type to search · enter accept · esc cancel "
+                mode_rename_tab  "#[bg=#7dcfff,fg=#1a1b26,bold] RENAME TAB #[bg=default,fg=#7dcfff] enter accept · esc cancel "
+                mode_rename_pane "#[bg=#7dcfff,fg=#1a1b26,bold] RENAME PANE #[bg=default,fg=#7dcfff] enter accept · esc cancel "
+                mode_locked      "#[bg=#f7768e,fg=#1a1b26,bold] LOCKED #[bg=default,fg=#f7768e] this mode is disabled in config.kdl "
+                mode_default_to_mode "normal"
+            }
+        }
+    }
+}

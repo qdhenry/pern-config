@@ -1,0 +1,570 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "session": {
+    "restore_unsaved_buffers": false,
+  },
+  "default_open_behavior": "new_window",
+  "git": {
+    "show_stage_restore_buttons": false,
+    "hunk_style": "unstaged_hollow",
+    "inline_blame": {
+      "show_commit_summary": true,
+      "enabled": true,
+    },
+  },
+  "cli_default_open_behavior": "new_window",
+  "diff_view_style": "unified",
+  "debugger": {
+    "dock": "left",
+  },
+  "edit_predictions": {
+    "provider": "copilot",
+  },
+  "restore_on_startup": "last_workspace",
+  "excerpt_context_lines": 5,
+  "double_click_in_multibuffer": "open",
+  "agent_servers": {},
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/.jj",
+    "**/.repo",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+  ],
+  "file_scan_inclusions": ["Packages/**", ".env", ".dev.vars", ""],
+  "show_edit_predictions": true,
+  "format_on_save": "on",
+  "lsp": {
+    "eslint": {
+      "settings": {
+        "codeActionOnSave": {
+          "mode": "all",
+          "rules": ["!", "+"],
+        },
+        "format": true,
+        "nodePath": null,
+        "onIgnoredFiles": "off",
+        "packageManager": "pnpm",
+        // "onType" re-lints on every keystroke; "onSave" cuts idle CPU sharply.
+        "run": "onSave",
+        "validate": "on",
+        "workingDirectory": {
+          "mode": "auto",
+        },
+      },
+    },
+  },
+  // effect-tsgo is OFF globally (it costs ~630 MB on its own). Re-enable it
+  // per-project in an Effect repo's .zed/settings.json with:
+  //   "language_servers": ["effect-tsgo", "..."]
+  "languages": {
+    "TypeScript": {
+      "format_on_save": "on",
+      "formatter": "prettier",
+      "language_servers": ["...", "!effect-tsgo"],
+    },
+    "TSX": {
+      "format_on_save": "on",
+      "formatter": "prettier",
+      "language_servers": ["...", "!effect-tsgo"],
+    },
+    "JavaScript": {
+      "format_on_save": "on",
+      "formatter": "prettier",
+      "language_servers": ["...", "!effect-tsgo"],
+    },
+    "JSX": {
+      "language_servers": ["...", "!effect-tsgo"],
+    },
+    "JSON": {
+      "format_on_save": "on",
+      "formatter": "prettier",
+    },
+    "CSS": {
+      "format_on_save": "on",
+      "formatter": "prettier",
+    },
+  },
+  "agent": {
+    "button": true,
+    "sidebar_side": "right",
+    "dock": "right",
+    "tool_permissions": {
+      "default": "allow",
+    },
+    "enabled": true,
+    "default_profile": "write",
+    "play_sound_when_agent_done": "always",
+    "inline_assistant_model": {
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-8-thinking-latest",
+    },
+    "default_model": {
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-5-thinking-latest",
+    },
+  },
+  "theme": "Zed Legacy: Atelier Sulphurpool Dark",
+  "vim_mode": true,
+  "ui_font_size": 15,
+  "buffer_font_size": 15,
+  "ui_font_family": "MonoLisa Code",
+  "ui_font_weight": 400,
+
+  "buffer_font_family": "MonoLisa Code",
+  "buffer_font_weight": 700,
+
+  "buffer_font_features": {
+    "ligatures": true,
+  },
+  "active_pane_modifiers": {
+    "border_size": 0.4,
+    "inactive_opacity": 0.9,
+  },
+  "icon_theme": "Catppuccin Macchiato",
+  "context_servers": {},
+
+  "confirm_quit": true,
+  "auto_signature_help": true,
+  "show_wrap_guides": false,
+  "expand_excerpt_lines": 20,
+  "indent_guides": {
+    // Whether to show indent guides in the editor.
+    "enabled": true,
+    // The width of the indent guides in pixels, between 1 and 10.
+    "line_width": 1,
+    // The width of the active indent guide in pixels, between 1 and 10.
+    "active_line_width": 4,
+    // Determines how indent guides are colored.
+    // This setting can take the following three values:
+    //
+    // 1. "disabled"
+    // 2. "fixed"
+    // 3. "indent_aware"
+    "coloring": "indent_aware",
+    // Determines how indent guide backgrounds are colored.
+    // This setting can take the following two values:
+    //
+    // 1. "disabled"
+    // 2. "indent_aware"
+    "background_coloring": "disabled",
+  },
+  "project_panel": {
+    // Whether to show the project panel button in the status bar
+    "git_status_indicator": true,
+    "button": true,
+    // Whether to hide the gitignore entries in the project panel.
+    "hide_gitignore": false,
+    // Default width of the project panel.
+    "default_width": 250,
+    // Where to dock the project panel. Can be 'left' or 'right'.
+    "dock": "left",
+    // Spacing between worktree entries in the project panel. Can be 'comfortable' or 'standard'.
+    "entry_spacing": "comfortable",
+    // Whether to show file icons in the project panel.
+    "file_icons": true,
+    // Whether to show folder icons or chevrons for directories in the project panel.
+    "folder_icons": true,
+    // Whether to show the git status in the project panel.
+    "git_status": true,
+    // Amount of indentation for nested items.
+    "indent_size": 24,
+    // Whether to reveal it in the project panel automatically,
+    // when a corresponding project entry becomes active.
+    // Gitignored entries are never auto revealed.
+    "auto_reveal_entries": true,
+    // Whether the project panel should open on startup.
+    "starts_open": true,
+    // Whether to fold directories automatically and show compact folders
+    // (e.g. "a/b/c" ) when a directory has only one subdirectory inside.
+    "auto_fold_dirs": true,
+    // Scrollbar-related settings
+    "scrollbar": {
+      // When to show the scrollbar in the project panel.
+      // This setting can take five values:
+      //
+      // 1. null (default): Inherit editor settings
+      // 2. Show the scrollbar if there's important information or
+      //    follow the system's configured behavior (default):
+      //   "auto"
+      // 3. Match the system's configured behavior:
+      //    "system"
+      // 4. Always show the scrollbar:
+      //    "always"
+      // 5. Never show the scrollbar:
+      //    "never"
+      "show": "auto",
+    },
+    // Which files containing diagnostic errors/warnings to mark in the project panel.
+    // This setting can take the following three values:
+    //
+    // 1. Do not mark any files:
+    //    "off"
+    // 2. Only mark files with errors:
+    //    "errors"
+    // 3. Mark files with errors and warnings:
+    //    "all"
+    "show_diagnostics": "errors",
+    // Whether to stick parent directories at top of the project panel.
+    "sticky_scroll": false,
+    // Settings related to indent guides in the project panel.
+    "indent_guides": {
+      // When to show indent guides in the project panel.
+      // This setting can take two values:
+      //
+      // 1. Always show indent guides:
+      //    "always"
+      // 2. Never show indent guides:
+      //    "never"
+      "show": "always",
+    },
+    // Whether to hide the root entry when only one folder is open in the window.
+    "hide_root": false,
+  },
+  "outline_panel": {
+    // Whether to show the outline panel button in the status bar
+    "button": true,
+    // Default width of the outline panel.
+    "default_width": 240,
+    // Where to dock the outline panel. Can be 'left' or 'right'.
+    "dock": "left",
+    // Whether to show file icons in the outline panel.
+    "file_icons": true,
+    // Whether to show folder icons or chevrons for directories in the outline panel.
+    "folder_icons": true,
+    // Whether to show the git status in the outline panel.
+    "git_status": true,
+    // Amount of indentation for nested items.
+    "indent_size": 24,
+    // Whether to reveal it in the outline panel automatically,
+    // when a corresponding outline entry becomes active.
+    // Gitignored entries are never auto revealed.
+    "auto_reveal_entries": true,
+    // Whether to fold directories automatically
+    // when a directory has only one directory inside.
+    "auto_fold_dirs": true,
+    // Settings related to indent guides in the outline panel.
+    "indent_guides": {
+      // When to show indent guides in the outline panel.
+      // This setting can take two values:
+      //
+      // 1. Always show indent guides:
+      //    "always"
+      // 2. Never show indent guides:
+      //    "never"
+      "show": "never",
+    },
+    // Scrollbar-related settings
+    "scrollbar": {
+      // When to show the scrollbar in the project panel.
+      // This setting can take five values:
+      //
+      // 1. null (default): Inherit editor settings
+      // 2. Show the scrollbar if there's important information or
+      //    follow the system's configured behavior (default):
+      //   "auto"
+      // 3. Match the system's configured behavior:
+      //    "system"
+      // 4. Always show the scrollbar:
+      //    "always"
+      // 5. Never show the scrollbar:
+      //    "never"
+      "show": "auto",
+    },
+    // Default depth to expand outline items in the current file.
+    // Set to 0 to collapse all items that have children, 1 or higher to collapse items at that depth or deeper.
+    "expand_outlines_with_depth": 2,
+  },
+  "collaboration_panel": {
+    "dock": "right",
+    "button": false,
+  },
+  "git_panel": {
+    "file_icons": true,
+    "tree_view": false,
+    "collapse_untracked_diff": true,
+    "sort_by_path": true,
+    "dock": "left",
+    "default_width": 240,
+  },
+  "max_tabs": 8,
+  "tab_bar": {
+    // Whether or not to show the tab bar in the editor
+    "show": true,
+    // Whether or not to show the navigation history buttons.
+    "show_nav_history_buttons": true,
+    // Whether or not to show the tab bar buttons.
+    "show_tab_bar_buttons": true,
+  },
+
+  "tabs": {
+    // Show git status colors in the editor tabs.
+    "git_status": true,
+    // Position of the close button on the editor tabs.
+    // One of: ["right", "left", "hidden"]
+    "close_position": "right",
+    // Whether to show the file icon for a tab.
+    "file_icons": true,
+    // Controls the appearance behavior of the tab's close button.
+    //
+    // 1. Show it just upon hovering the tab. (default)
+    //     "hover"
+    // 2. Show it persistently.
+    //     "always"
+    // 3. Never show it, even if hovering it.
+    //     "hidden"
+    "show_close_button": "hover",
+    // What to do after closing the current tab.
+    //
+    // 1. Activate the tab that was open previously (default)
+    //     "history"
+    // 2. Activate the right neighbour tab if present
+    //     "neighbour"
+    // 3. Activate the left neighbour tab if present
+    //     "left_neighbour"
+    "activate_on_close": "history",
+    // Which files containing diagnostic errors/warnings to mark in the tabs.
+    // Diagnostics are only shown when file icons are also active.
+    // This setting only works when can take the following three values:
+    //
+    // 1. Do not mark any files:
+    //    "off"
+    // 2. Only mark files with errors:
+    //    "errors"
+    // 3. Mark files with errors and warnings:
+    //    "all"
+    "show_diagnostics": "errors",
+  },
+  "file_finder": {
+    // Whether to show file icons in the file finder.
+    "file_icons": true,
+    "modal_max_width": "medium",
+    "include_ignored": "smart",
+  },
+  "telemetry": {
+    // Send debug info like crash reports.
+    "diagnostics": false,
+    // Send anonymized usage data like what languages you're using Zed with.
+    "metrics": false,
+  },
+  "terminal": {
+    "shell": {
+      "program": "/opt/homebrew/bin/codemux",
+    },
+    // Option sends Alt/Meta instead of macOS composed chars, so zellij's
+    // Alt+n/e/i/o and Ctrl+Alt+g chords reach zellij instead of typing "å".
+    "option_as_meta": true,
+  },
+  // "terminal": {
+  //   // Was: {"program": "zellij"} — bare `zellij` CREATES a new session per
+  //   // terminal tab (8 accumulated in 25 min, each with its own status-bar
+  //   // plugin writing to a PTY, forcing Zed to repaint). Zellij now owns
+  //   // multiplexing: open one terminal and run `zellij attach -c main`.
+  //   "shell": "system",
+  //   // What shell to use when opening a terminal. May take 3 values:
+  //   // 1. Use the system's default terminal configuration in /etc/passwd
+  //   //      "shell": "system"
+  //   // 2. A program:
+  //   //      "shell": {
+  //   //        "program": "sh"
+  //   //      }
+  //   // 3. A program with arguments:
+  //   //     "shell": {
+  //   //         "with_arguments": {
+  //   //           "program": "/bin/bash",
+  //   //           "args": ["--login"]
+  //   //         }
+  //   //     }
+  //   // "shell": {
+  //   //   "program": "/bin/zsh"
+  //   // },
+  //   // Where to dock terminals panel. Can be `left`, `right`, `bottom`.
+  //   "dock": "bottom",
+  //   // Default width when the terminal is docked to the left or right.
+  //   "default_width": 840,
+  //   // Default height when the terminal is docked to the bottom.
+  //   "default_height": 400,
+  //   // What working directory to use when launching the terminal.
+  //   // May take 4 values:
+  //   // 1. Use the current file's project directory.  Will Fallback to the
+  //   //    first project directory strategy if unsuccessful
+  //   //      "working_directory": "current_project_directory"
+  //   // 2. Use the first project in this workspace's directory
+  //   //      "working_directory": "first_project_directory"
+  //   // 3. Always use this platform's home directory (if we can find it)
+  //   //     "working_directory": "always_home"
+  //   // 4. Always use a specific directory. This value will be shell expanded.
+  //   //    If this path is not a valid directory the terminal will default to
+  //   //    this platform's home directory  (if we can find it)
+  //   //      "working_directory": {
+  //   //        "always": {
+  //   //          "directory": "~/zed/projects/"
+  //   //        }
+  //   //      }
+  //   "working_directory": "current_project_directory",
+  //   // Set the cursor blinking behavior in the terminal.
+  //   // May take 3 values:
+  //   //  1. Never blink the cursor, ignoring the terminal mode
+  //   //         "blinking": "off",
+  //   //  2. Default the cursor blink to off, but allow the terminal to
+  //   //     set blinking
+  //   //         "blinking": "terminal_controlled",
+  //   //  3. Always blink the cursor, ignoring the terminal mode
+  //   //         "blinking": "on",
+  //   "blinking": "terminal_controlled",
+  //   // Default cursor shape for the terminal.
+  //   //  1. A block that surrounds the following character
+  //   //     "block"
+  //   //  2. A vertical bar
+  //   //     "bar"
+  //   //  3. An underline / underscore that runs along the following character
+  //   //     "underline"
+  //   //  4. A box drawn around the following character
+  //   //     "hollow"
+  //   //
+  //   // Default: not set, defaults to "block"
+  //   "cursor_shape": null,
+  //   // Set whether Alternate Scroll mode (code: ?1007) is active by default.
+  //   // Alternate Scroll mode converts mouse scroll events into up / down key
+  //   // presses when in the alternate screen (e.g. when running applications
+  //   // like vim or  less). The terminal can still set and unset this mode.
+  //   // May take 2 values:
+  //   //  1. Default alternate scroll mode to on
+  //   //         "alternate_scroll": "on",
+  //   //  2. Default alternate scroll mode to off
+  //   //         "alternate_scroll": "off",
+  //   "alternate_scroll": "on",
+  //   // Set whether the option key behaves as the meta key.
+  //   // May take 2 values:
+  //   //  1. Rely on default platform handling of option key, on macOS
+  //   //     this means generating certain unicode characters
+  //   //         "option_as_meta": false,
+  //   //  2. Make the option keys behave as a 'meta' key, e.g. for emacs
+  //   //         "option_as_meta": true,
+  //   "option_as_meta": true,
+  //   // Whether or not selecting text in the terminal will automatically
+  //   // copy to the system clipboard.
+  //   "copy_on_select": false,
+  //   // Whether to keep the text selection after copying it to the clipboard
+  //   "keep_selection_on_copy": true,
+  //   // Whether to show the terminal button in the status bar
+  //   "button": false,
+  //   // Any key-value pairs added to this list will be added to the terminal's
+  //   // environment. Use `:` to separate multiple values.
+  //   "env": {
+  //     // "KEY": "value1:value2"
+  //   },
+  //   // Set the terminal's line height.
+  //   // May take 3 values:
+  //   //  1. Use a line height that's comfortable for reading, 1.618
+  //   //         "line_height": "comfortable"
+  //   //  2. Use a standard line height, 1.3. This option is useful for TUIs,
+  //   //      particularly if they use box characters
+  //   //         "line_height": "standard",
+  //   //  3. Use a custom line height.
+  //   //         "line_height": {
+  //   //           "custom": 2
+  //   //         },
+  //   "line_height": "standard",
+  //   // Activate the python virtual environment, if one is found, in the
+  //   // terminal's working directory (as resolved by the working_directory
+  //   // setting). Set this to "off" to disable this behavior.
+  //   "detect_venv": {
+  //     "on": {
+  //       // Default directories to search for virtual environments, relative
+  //       // to the current working directory. We recommend overriding this
+  //       // in your project's settings, rather than globally.
+  //       "directories": [".env", "env", ".venv", "venv"],
+  //       // Can also be `csh`, `fish`, `nushell` and `power_shell`
+  //       "activate_script": "default",
+  //     },
+  //   },
+  //   "toolbar": {
+  //     // Whether to display the terminal title in its toolbar's breadcrumbs.
+  //     // Only shown if the terminal title is not empty.
+  //     //
+  //     // The shell running in the terminal needs to be configured to emit the title.
+  //     // Example: `echo -e "\e]2;New Title\007";`
+  //     "breadcrumbs": true,
+  //   },
+  //   // Scrollbar-related settings
+  //   "scrollbar": {
+  //     // When to show the scrollbar in the terminal.
+  //     // This setting can take five values:
+  //     //
+  //     // 1. null (default): Inherit editor settings
+  //     // 2. Show the scrollbar if there's important information or
+  //     //    follow the system's configured behavior (default):
+  //     //   "auto"
+  //     // 3. Match the system's configured behavior:
+  //     //    "system"
+  //     // 4. Always show the scrollbar:
+  //     //    "always"
+  //     // 5. Never show the scrollbar:
+  //     //    "never"
+  //     "show": "auto",
+  //   },
+  //   // Set the terminal's font size. If this option is not included,
+  //   // the terminal will default to matching the buffer's font size.
+  //   "font_size": 14,
+  //   // Set the terminal's font family. If this option is not included,
+  //   // the terminal will default to matching the buffer's font family.
+  //   "font_family": "MonoLisa",
+  //   // Set the terminal's font fallbacks. If this option is not included,
+  //   // the terminal will default to matching the buffer's font fallbacks.
+  //   // This will be merged with the platform's default font fallbacks
+  //   // "font_fallbacks": ["FiraCode Nerd Fonts"],
+  //   // The weight of the editor font in standard CSS units from 100 to 900.
+  //   "font_weight": 500,
+  //   // Sets the maximum number of lines in the terminal's scrollback buffer.
+  //   // Default: 10_000, maximum: 100_000 (all bigger values set will be treated as 100_000), 0 disables the scrolling.
+  //   // Existing terminals will not pick up this change until they are recreated.
+  //   "max_scroll_history_lines": 10000,
+  //   // The minimum APCA perceptual contrast between foreground and background colors.
+  //   // APCA (Accessible Perceptual Contrast Algorithm) is more accurate than WCAG 2.x,
+  //   // especially for dark mode. Values range from 0 to 106.
+  //   //
+  //   // Based on APCA Readability Criterion (ARC) Bronze Simple Mode:
+  //   // https://readtech.org/ARC/tests/bronze-simple-mode/
+  //   // - 0: No contrast adjustment
+  //   // - 45: Minimum for large fluent text (36px+)
+  //   // - 60: Minimum for other content text
+  //   // - 75: Minimum for body text
+  //   // - 90: Preferred for body text
+  //   //
+  //   // Most terminal themes have APCA values of 40-70.
+  //   // A value of 45 preserves colorful themes while ensuring legibility.
+  //   // 45 ran APCA contrast math (powf) on every visible cell every frame —
+  //   // ~18% of Zed's working main thread. 15 still rescues unreadable pairs.
+  //   "minimum_contrast": 15,
+  // },
+  "prettier": {
+    // // Whether to consider prettier formatter or not when attempting to format a file.
+    "allowed": true,
+    //
+    // // Use regular Prettier json configuration.
+    // // If Prettier is allowed, Zed will use this for its Prettier instance for any applicable file, if
+    // // the project has no other Prettier installed.
+    // "plugins": [],
+    //
+    // // Use regular Prettier json configuration.
+    // // If Prettier is allowed, Zed will use this for its Prettier instance for any applicable file, if
+    // // the project has no other Prettier installed.
+    // "trailingComma": "es5",
+    // "tabWidth": 4,
+    // "semi": false,
+    // "singleQuote": true
+  },
+}
